@@ -1,0 +1,66 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.css}">
+
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+    <script th:src="@{webjars/jquery/3.0.0/jquery.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<img th:src="@{images/bgImg.jpg}" class="bgImg" />
+
+<div>
+    <div class="be-content pren" style="background: #0f1a1494;opacity:0.7">
+
+        <div class="ioc_text">
+            <img th:src="@{/images/logo.png}" alt="">
+            <span>感谢您的注册</span>
+        </div>
+
+        <div>
+            <form th:action="@{/regist}" th:object="${user}" th:method="post">
+                <div class="br-content">
+                    <div class="input-group  bootint" >
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input  type="text" name="account" th:field="*{account}" class="form-control" placeholder="Username">
+
+                    </div>
+                    <div style="height:36px"><span th:if="${#fields.hasErrors('account')}" th:errors="*{account}" style="color: red">Account Error</span></div>
+                    <div class="input-group  bootint">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-unlock-alt"></i></span>
+                        </div>
+                        <input type="password"   th:field="*{password}" class="form-control" placeholder="Your Password">
+
+                    </div>
+                    <div style="height:36px"><span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red">Password Error</span></div>
+
+                    <div class="br-text">
+                        <p>
+                            <span>已有账号?</span>
+                            <a th:href="@{/login}">登录</a>
+                        </p>
+                    </div>
+                    <div style="padding-top: 10px">
+                        <input type="submit" class="btn" value="注册">
+                    </div>
+                    <div class="be-con">
+                        <span>Copyright © 2018 - 2019 <a href="#">系统注册</a></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
